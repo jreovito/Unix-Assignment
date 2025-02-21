@@ -51,6 +51,7 @@ grep -E 'ZMBA|ZMPIL|ZMPJA' fang_et_al_genotypes.txt > teosinte.txt
 
 #### Using sort() to sort the snp_position.txt file by the content in the first column as indicated by -k1
 head -n 1 snp_position.txt > snp_positons_sorted.txt
+
 sort -k1 snp_positions.txt >> snp_positions_sorted.txt
 
 #### Using awk() to transpose the teosinte.txt file so that columns become rows while also creating a new file named transposed_teosinte_genotypes.txt
