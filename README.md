@@ -95,7 +95,7 @@ for i in {1..10}; do
     awk -v chr="$i" '$3 == chr' joined_teosinte.txt | sed 's/?/-/g' | sort -k2,2nr > "chr${i}_decreasing.txt"
 done
 
-#### To elaborate further, in the code for increasing order, "'s/NA/-/g'" is telling the computer to serch for "NA" and replace it with "?". This is for both maize and teosinte data. I put NA because there are no missing values labeled that and since the missing values are represented by "?" already, there was no reason to do this step but I wanted to show that you could.
+#### To elaborate further, in the code for increasing order, "'s/NA/-/g'" is telling the computer to search for "NA" and replace it with "?". This is for both maize and teosinte data. I put NA because there are no missing values labeled that and since the missing values are represented by "?" already, there was no reason to do this step but I wanted to show that you could.
 #### For the decreasing code, I indicate that I want the computer to search for any "?" and replace it with "-" as seen by this section of code: "sed 's/?/-/g'".
 #### Finally, for the increasing code, this part "sort -k2,2n" indicates that I want the data sorted numerically in increasing order. For decreasing order, we add an "r" to indicate "reverse" numerical order as seen by "sort -k2, 2nr".
 
