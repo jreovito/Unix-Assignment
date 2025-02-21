@@ -74,25 +74,25 @@ join -1 1 -2 1 joined_maize.txt joined_teosinte.txt > final_genotype_data.txt
 #### For this next step, I did some research to figure out how to create a for-loop. I did this so that I could create individual files for the 10 chromosomes without having to individually write awk commands. This initial line created 10 txt files using the joined_maize.txt and also replaces any missing values with "?". However, the missing values are not necessary to replace because they are already represented as a "?"
 
 for i in {1..10}; do
-    awk -v chr="$i" '$3 == chr' joined_maize.txt | sed 's/NA/?/g' | sort -k2,2n > "chr${i}_increasing.txt"
+    awk -v chr="$i" '$3 == chr' joined_maize.txt | sed 's/NA/?/g' | sort -k2,2n > "chr${i}_increasing_maize.txt"
 done
 
 #### Same code but for teosinte (10 files created, increasing order, no replacements)
 
 for i in {1..10}; do
-    awk -v chr="$i" '$3 == chr' joined_teosinte.txt | sed 's/NA/?/g' | sort -k2,2n > "chr${i}_increasing.txt"
+    awk -v chr="$i" '$3 == chr' joined_teosinte.txt | sed 's/NA/?/g' | sort -k2,2n > "chr${i}_increasing_teosinte.txt"
 done
 
 #### Now, for maize data, create 10 files in decreasing order and missing values "?" are now represeneted as "-"
 
 for i in {1..10}; do
-    awk -v chr="$i" '$3 == chr' joined_maize.txt | sed 's/?/-/g' | sort -k2,2nr > "chr${i}_decreasing.txt"
+    awk -v chr="$i" '$3 == chr' joined_maize.txt | sed 's/?/-/g' | sort -k2,2nr > "chr${i}_decreasing_maize.txt"
 done
 
 #### Same code but for teosinte (10 files created, decreasing order, missing values "?" replaced by "-")
 
 for i in {1..10}; do
-    awk -v chr="$i" '$3 == chr' joined_teosinte.txt | sed 's/?/-/g' | sort -k2,2nr > "chr${i}_decreasing.txt"
+    awk -v chr="$i" '$3 == chr' joined_teosinte.txt | sed 's/?/-/g' | sort -k2,2nr > "chr${i}_decreasing_teosinte.txt"
 done
 
 #### To elaborate further, in the code for increasing order, "'s/NA/-/g'" is telling the computer to search for "NA" and replace it with "?". This is for both maize and teosinte data. I put NA because there are no missing values labeled that and since the missing values are represented by "?" already, there was no reason to do this step but I wanted to show that you could.
