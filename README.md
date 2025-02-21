@@ -71,7 +71,7 @@ join -1 1 -2 1 -a 2 snp_positions_sorted.txt sorted_teosinte.txt > joined_teosin
 
 join -1 1 -2 1 joined_maize.txt joined_teosinte.txt > final_genotype_data.txt
 
-#### For this next step, I created a for-loop so that I could create individual files for the 10 chromosomes without having to individually write awk commands. This initial line created 10 txt files using the joined_maize.txt and also replaces any missing values with "?". However, the missing values are not necessary to replace because they are already represented as a "?"
+#### For this next step, I did some research to figure out how to create a for-loop. I did this so that I could create individual files for the 10 chromosomes without having to individually write awk commands. This initial line created 10 txt files using the joined_maize.txt and also replaces any missing values with "?". However, the missing values are not necessary to replace because they are already represented as a "?"
 
 for i in {1..10}; do
     awk -v chr="$i" '$3 == chr' joined_maize.txt | sed 's/NA/?/g' | sort -k2,2n > "chr${i}_increasing.txt"
