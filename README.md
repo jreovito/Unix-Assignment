@@ -23,7 +23,7 @@ du -h snp_positions.txt
 
 awk -F "\t" '{print NF; exit}' snp_positions.txt
 
-#### After inspecting the contents within the .txt file, I learned:That the file had 984 lines, 13,198 words, and 82,763 bytes. That the file was 84K. The file had 15 columns, although the last column was not labelled.
+#### After inspecting the contents within the .txt file, I learned: That the file had 984 lines, 13,198 words, and 82,763 bytes. That the file was 84K. The file had 15 columns, although the last column was not labelled.
 
 Attributes of fang_et_al_genotypes.txt
 
